@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from './../../../../services/userService.service';
 import { Title } from '@angular/platform-browser';
 import {  MessageService } from 'primeng/api';
-import { swal, swalMessage } from '../../../../shared/swal/swal.module';
+import { swal, swalMessage } from '../../../../shared/uiHelpers/swal/swal.module';
 
 @Component({
   selector: 'app-users-list',

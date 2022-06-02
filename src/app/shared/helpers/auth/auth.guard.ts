@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
-import { MessageService } from 'primeng/api';
 import { ToastrService } from 'ngx-toastr';
 @Injectable({
     providedIn: 'root',

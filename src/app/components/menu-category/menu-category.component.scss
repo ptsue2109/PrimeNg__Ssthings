@@ -1,0 +1,111 @@
+$--column-count: 4;
+$--tile-size: 112px;
+$--content-width: 1;
+.home-skill {
+  &_title {
+    margin-bottom: 40px;
+  }
+  text-align: center;
+  margin: 30px 0px;
+  padding: 20px 0px;
+  &_content {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(5, 1fr);
+    justify-content: center;
+    margin-bottom: 8px;
+    overflow: hidden;
+    padding: 2px;
+    transition: opacity 300ms ease-in-out;
+    &__item {
+      overflow: hidden;
+      border: 1px solid #dddd;
+      padding: 15px;
+      &:hover {
+        background-color: rgb(255, 255, 255);
+      }
+      &--img {
+        padding: 15px;
+        cursor: pointer;
+        width: 125px;
+        margin: auto;
+        height: 125px;
+        padding: 20px;
+        border-radius: 50%;
+        background-color: rgb(246, 246, 246);
+        &:hover {
+          background-color: #ffff;
+        }
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: 5px;
+          &:hover {
+            content: "HELLO";
+          }
+        }
+      }
+      // border: 1px solid rgb(241, 239, 239);
+      // // width: 100%;
+      // overflow: hidden;
+      // &--img img {
+      //   width: 100%;
+      //   border-radius: 10px;
+      //   margin-bottom: 10px;
+      //   background-color: transparent;
+      // }
+
+      // &:first-child{
+      //   &::after{
+      //     content: "JAVASCRIP";
+      //   }
+
+      // }
+      // &:nth-child(2){
+      //   &::after{
+      //     content: "React JS";
+      //   }
+      // }
+      // &:nth-child(3){
+      //   &::after{
+      //     content: "TypeScript";
+      //   }
+      // }
+      // &:nth-child(4){
+      //   &::after{
+      //     content: "HTML5";
+      //   }
+      // }
+      // &:nth-child(5){
+      //   &::after{
+      //     content: "CSS6";
+      //   }
+      // }
+      // &:nth-child(6){
+      //   &::after{
+      //     content: "SCSS";
+      //   }
+      // }
+      // &:nth-child(7){
+      //   &::after{
+      //     content: "GITHUB";
+      //   }
+      // }
+      // &:nth-child(8){
+      //   &::after{
+      //     content: "MY SQL";
+      //   }
+      // }
+      // &:nth-child(9){
+      //   &::after{
+      //     content: "Angular";
+      //   }
+      // }
+      // &:last-child{
+      //   &::after{
+      //     content: "Mongodb";
+      //   }
+      // }
+    }
+  }
+}

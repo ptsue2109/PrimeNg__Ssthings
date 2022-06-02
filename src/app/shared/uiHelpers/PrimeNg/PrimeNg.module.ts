@@ -20,9 +20,15 @@ import { AvatarModule } from 'primeng/avatar';
 import { TagModule } from 'primeng/tag';
 import { AvatarGroupModule } from 'primeng/avatargroup';
 import { ConfirmPopupModule } from 'primeng/confirmpopup';
-import {CardModule} from 'primeng/card';
-import {FileUploadModule} from 'primeng/fileupload';
-import {EditorModule} from 'primeng/editor';
+import { CardModule } from 'primeng/card';
+import { FileUploadModule } from 'primeng/fileupload';
+import { EditorModule } from 'primeng/editor';
+import { ChipModule } from 'primeng/chip';
+import { ScrollTopModule } from 'primeng/scrolltop';
+import { BadgeModule } from 'primeng/badge';
+import {CarouselModule} from 'primeng/carousel';
+import {DataViewModule} from 'primeng/dataview';
+import {ImageModule} from 'primeng/image';
 const PrimeNgComponent = [
   PasswordModule,
   DividerModule,
@@ -36,7 +42,8 @@ const PrimeNgComponent = [
   MessageModule,
   ToastModule,
   MegaMenuModule,
-  AvatarModule,
+  AvatarModule, 
+  BadgeModule,
   AvatarGroupModule,
   PanelMenuModule,
   SlideMenuModule,
@@ -47,10 +54,16 @@ const PrimeNgComponent = [
   DialogModule,
   CardModule,
   FileUploadModule,
-  EditorModule
+  EditorModule,
+  ChipModule,
+  ScrollTopModule,
+  CarouselModule,
+  ImageModule,
+  DataViewModule
+
 ];
 
 @NgModule({
   exports: [PrimeNgComponent],
 })
-export class PrimeNgModule {}
+export class PrimeNgModule { }

@@ -1,0 +1,16 @@
+<p-card>
+    <p-divider align="left">
+        <div class="inline-flex align-items-center">
+            <i class="pi pi-fw pi-list mr-2"></i>
+            <b>Categories</b>
+        </div>
+    </p-divider>
+    <div className="home-skill_content">
+        <div className="home-skill_content__item" *ngFor="let item of categories">
+            <div className="home-skill_content__item--img">
+                <a routerLink="{{item.url}}">
+                    <img src={{item.image}} alt={{item.catename}} /></a>
+            </div>
+        </div>
+    </div>
+</p-card>

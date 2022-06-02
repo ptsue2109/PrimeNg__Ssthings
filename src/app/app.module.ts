@@ -19,8 +19,8 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PrimeNgModule } from './shared/PrimeNg/PrimeNg.module';
-import { MdbModule } from './shared/mdb/Mdb.module';
+import { PrimeNgModule } from './shared/uiHelpers/PrimeNg/PrimeNg.module';
+import { MdbModule } from './shared/uiHelpers/mdb/Mdb.module';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { HttpClientModule } from '@angular/common/http';
 import { UsersComponent } from './pages/admin/users/users.component';
@@ -39,6 +39,13 @@ import { ProductsLisstComponent } from './pages/admin/products/products-lisst/pr
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 import { HomeComponent } from './pages/website/home/home.component';
 import { ToastrModule } from 'ngx-toastr';
+import { WebHeaderComponent } from './components/layouts/web-layout/web-header/web-header.component';
+import { WebFooterComponent } from './components/layouts/web-layout/web-footer/web-footer.component';
+import { MaterialModule } from './shared/uiHelpers/meterial/meterial.module';
+import { SlidersComponent } from './components/sliders/sliders.component';
+import { MenuCategoryComponent } from './components/menu-category/menu-category.component';
+import { CardProductSlideComponent } from './components/card-product-slide/card-product-slide.component';
+import { BrandsListComponent } from './components/brands-list/brands-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,6 +65,12 @@ import { ToastrModule } from 'ngx-toastr';
     ProductsLisstComponent,
     ErrorPageComponent,
     HomeComponent,
+    WebHeaderComponent,
+    WebFooterComponent,
+    SlidersComponent,
+    MenuCategoryComponent,
+    CardProductSlideComponent,
+    BrandsListComponent,
   ],
   imports: [
   BrowserModule,
@@ -72,6 +85,7 @@ import { ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     SweetAlert2Module.forRoot(),
     ToastrModule.forRoot(),
+    MaterialModule
 
     // provideFirebaseApp(() => initializeApp(environment.firebase)),
     // provideAnalytics(() => getAnalytics()),

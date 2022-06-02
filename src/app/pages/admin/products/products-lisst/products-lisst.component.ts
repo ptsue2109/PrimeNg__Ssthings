@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductsService } from './../../../../services/products.service';
 import { MessageService } from 'primeng/api';
 import { Title } from '@angular/platform-browser';
-import { swalMessage } from 'src/app/shared/swal/swal.module';
+import { swalMessage } from 'src/app/shared/uiHelpers/swal/swal.module';
 @Component({
   selector: 'app-products-lisst',
   templateUrl: './products-lisst.component.html',
