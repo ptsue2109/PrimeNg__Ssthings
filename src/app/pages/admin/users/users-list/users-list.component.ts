@@ -24,7 +24,6 @@ export class UsersListComponent implements OnInit {
   constructor(
     private Title: Title,
     private UserService: UserService,
-    private messageService: MessageService
   ) {}
 
   ngOnInit(): void {

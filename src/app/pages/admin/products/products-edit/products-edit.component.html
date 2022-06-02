@@ -1,0 +1,76 @@
+
+<a [routerLink]="'/admin/products'" mat-raised-button >List products</a>
+<p-card style="border: 1px solid rgb(160, 160, 160); margin-top: 10px">
+    <form action="" [formGroup]="AddForm" (ngSubmit)="addNew()">
+        <p-toast position="top-right"></p-toast>
+        <div class="d-flex gap-3">
+            <div class="col col-lg-6">
+                <div class="mb-4">
+                     <img src="{{dataPro.image}}" mat-card-avatar>
+                    <input type="file" name="image" (change)="saveFileThumail($event)" formControlName="image"
+                        class="form-control" />
+                </div>
+                <div class="mb-4">
+                    <img  *ngFor="let i of listImgDetail" src="{{i.name}}"  mat-card-avatar> <br>
+                    <label for="">Chọn ảnh chi tiết (chọn nhiều) </label> 
+                   <input type="file" name="image_mutiple" (change)="saveFileThumail($event)" formControlName="image_mutiple"
+                       class="form-control" />
+               </div>
+                <div class="mb-4">
+                    <mdb-form-control>
+                        <input mdbLabel type="text" [(ngModel)]="dataPro.name_product" formControlName="name_product" class="form-control" />
+                        <label mdbInput class="form-label" for="name_product">Name</label>
+                    </mdb-form-control>
+                </div>
+                <div class="mb-4">
+                    <mdb-form-control>
+                        <input mdbLabel type="number" [(ngModel)]="dataPro.price" formControlName="price" class="form-control" />
+                        <label mdbInput class="form-label" for="price">price</label>
+                    </mdb-form-control>
+                </div>
+
+                <div class="mb-4">
+                    <mdb-form-control>
+                        <input mdbLabel type="number" [(ngModel)]="dataPro.stock" formControlName="stock" class="form-control" />
+                        <label mdbInput class="form-label" for="stock">stocks</label>
+                    </mdb-form-control>
+                </div>
+                <div class="mb-4">
+                    <div class="form-group">
+                        <label for="">Choose Category</label>
+                        <select (change)="selectOption($event)" class="form-select"  [(ngModel)]="dataPro.categories" [ngModelOptions]="{standalone: true}">
+                            <option value="{{item._id}}" *ngFor="let item of categories">
+                                {{ item.catename }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col col-lg-6">
+                <div class="mb-4">
+                    <mdb-form-control>
+                        <input mdbLabel type="number" formControlName="discount" [(ngModel)]="dataPro.discounts"  class="form-control" />
+                        <label mdbInput class="form-label" for="discount">discounts</label>
+                    </mdb-form-control>
+                </div>
+                <div class="mb-4">
+                    <mdb-form-control>
+                        <textarea mdbLabel type="text" formControlName="desc"  [(ngModel)]="dataPro.desc" class="form-control"></textarea>
+                        <label mdbInput class="form-label" for="desc">desc</label>
+                    </mdb-form-control>
+                </div>
+                <div class="mb-4">
+                    <mdb-form-control>
+                        <input mdbLabel type="text" formControlName="short_desc" [(ngModel)]="dataPro.short_desc" class="form-control" />
+                        <label mdbInput class="form-label" for="short_desc">short_descs</label>
+                    </mdb-form-control>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <button class="btn btn-primary btn-sm">Submit</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</p-card>
