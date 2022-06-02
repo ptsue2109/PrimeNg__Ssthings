@@ -18,7 +18,6 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFireModule } from '@angular/fire/compat';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
-import { WebsiteComponent } from './pages/website/website.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PrimeNgModule } from './shared/PrimeNg/PrimeNg.module';
 import { MdbModule } from './shared/mdb/Mdb.module';
@@ -37,13 +36,14 @@ import { ProductsComponent } from './pages/admin/products/products.component';
 import { ProductsAddComponent } from './pages/admin/products/products-add/products-add.component';
 import { ProductsEditComponent } from './pages/admin/products/products-edit/products-edit.component';
 import { ProductsLisstComponent } from './pages/admin/products/products-lisst/products-lisst.component';
-
+import { ErrorPageComponent } from './components/error-page/error-page.component';
+import { HomeComponent } from './pages/website/home/home.component';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    WebsiteComponent,
     UsersComponent,
     UsersListComponent,
     WebLayoutComponent,
@@ -56,6 +56,8 @@ import { ProductsLisstComponent } from './pages/admin/products/products-lisst/pr
     ProductsAddComponent,
     ProductsEditComponent,
     ProductsLisstComponent,
+    ErrorPageComponent,
+    HomeComponent,
   ],
   imports: [
   BrowserModule,
@@ -68,7 +70,8 @@ import { ProductsLisstComponent } from './pages/admin/products/products-lisst/pr
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    SweetAlert2Module.forRoot()
+    SweetAlert2Module.forRoot(),
+    ToastrModule.forRoot(),
 
     // provideFirebaseApp(() => initializeApp(environment.firebase)),
     // provideAnalytics(() => getAnalytics()),

@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
 import { AdminLayoutComponent } from './components/layouts/admin-layout/admin-layout.component';
+import { WebLayoutComponent } from './components/layouts/web-layout/web-layout.component';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { ProductsAddComponent } from './pages/admin/products/products-add/products-add.component';
 import { ProductsEditComponent } from './pages/admin/products/products-edit/products-edit.component';
@@ -12,6 +14,8 @@ import { UsersListComponent } from './pages/admin/users/users-list/users-list.co
 import { UsersComponent } from './pages/admin/users/users.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
+import { HomeComponent } from './pages/website/home/home.component';
+import { AuthGuard } from './shared/helpers/auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -25,6 +29,7 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminLayoutComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: '',
@@ -44,34 +49,48 @@ const routes: Routes = [
           },
           {
             path: 'edit/:id',
-            component: UsersEditComponent
-          }
+            component: UsersEditComponent,
+          },
         ],
       },
       {
-        path : 'products',
+        path: 'products',
         component: ProductsComponent,
         children: [
           {
-            path : '',
-            component: ProductsLisstComponent
+            path: '',
+            component: ProductsLisstComponent,
           },
           {
-            path : "add",
-            component : ProductsAddComponent
+            path: 'add',
+            component: ProductsAddComponent,
           },
           {
-            path : ':id',
-            component: ProductsEditComponent
-          }
-        ]
-      }
+            path: ':id',
+            component: ProductsEditComponent,
+          },
+        ],
+      },
     ],
+  },
+  {
+    path: '',
+    component: WebLayoutComponent,
+    children: [
+      {
+        path: '',
+        component: HomeComponent,
+      },
+    ],
+  },
+  {
+    path: '**',
+    component: ErrorPageComponent,
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
-exports: [RouterModule],
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}
