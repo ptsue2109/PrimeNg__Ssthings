@@ -22,6 +22,7 @@ import { AvatarGroupModule } from 'primeng/avatargroup';
 import { ConfirmPopupModule } from 'primeng/confirmpopup';
 import {CardModule} from 'primeng/card';
 import {FileUploadModule} from 'primeng/fileupload';
+import {EditorModule} from 'primeng/editor';
 const PrimeNgComponent = [
   PasswordModule,
   DividerModule,
@@ -45,7 +46,8 @@ const PrimeNgComponent = [
   ConfirmPopupModule,
   DialogModule,
   CardModule,
-  FileUploadModule
+  FileUploadModule,
+  EditorModule
 ];
 
 @NgModule({

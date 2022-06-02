@@ -27,6 +27,7 @@
     "mdb-angular-ui-kit": "^2.2.0",
     "primeicons": "^5.0.0",
     "primeng": "^13.4.1",
+    "quill": "^1.3.7",
     "rxjs": "~7.5.0",
     "sweetalert2": "^11.4.17",
     "tslib": "^2.3.0",

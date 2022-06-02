@@ -38,8 +38,10 @@
                 <div class="mb-4">
                     <div class="form-group">
                         <label for="">Choose Category</label>
-                        <select class="form-control" formControlName="category_id" id="">
-                            <option value="{{item._id}}" *ngFor="let item of categories">{{item.catename}}</option>
+                        <select class="form-control" formControlName="categoryId" id="">
+                            <option value="{{ item._id }}" *ngFor="let item of categories">
+                                {{ item.catename }}
+                            </option>
                         </select>
                     </div>
                 </div>
@@ -53,16 +55,15 @@
                     </mdb-form-control>
                 </div>
                 <div class="mb-4">
-                    <mdb-form-control>
-                        <textarea mdbLabel type="text" formControlName="desc" class="form-control"></textarea>
-                        <label mdbInput class="form-label" for="desc">desc</label>
-                    </mdb-form-control>
+                    <p-editor formControlName="desc" [style]="{ height: '130px' }"></p-editor>
                 </div>
                 <div class="mb-4">
                     <div class="form-group">
                         <label for="">Choose Brands</label>
-                        <select class="form-control" formControlName="brand" id="">
-                            <option value="{{item._id}}" *ngFor="let item of brands">{{item.brandName}}</option>
+                        <select class="form-control" formControlName="brandId" id="">
+                            <option value="{{ item._id }}" *ngFor="let item of brands">
+                                {{ item.brandName }}
+                            </option>
                         </select>
                     </div>
                 </div>

@@ -1,0 +1,52 @@
+<p-toast></p-toast>
+
+<div class="card">
+    <p-toolbar styleClass="mb-4">
+        <ng-template pTemplate="left">
+            <a  [routerLink]="'/admin/products/add'" pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2" ></a>
+        </ng-template>
+    </p-toolbar>
+
+    <p-table #dt [value]="products" [rows]="5" [paginator]="true" [globalFilterFields]="['name_product']" responsiveLayout="scroll" [rowHover]="true"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+  
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="name_product">Name <p-sortIcon field="name_product"></p-sortIcon></th>
+                <th>Image</th>
+                <th pSortableColumn="price">Price <p-sortIcon field="price"></p-sortIcon></th>
+                <th pSortableColumn="brand">brand <p-sortIcon field="brand"></p-sortIcon></th>
+                <th pSortableColumn="category">category <p-sortIcon field="category"></p-sortIcon></th>
+                <th pSortableColumn="discount">discount <p-sortIcon field="discount"></p-sortIcon></th>
+                <th pSortableColumn="stock">stock <p-sortIcon field="stock"></p-sortIcon></th>
+                <th>Action</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product>
+            <tr>
+                <td>{{product.name_product}}</td>
+                <td><img [src]="product.image" [alt]="product.name_product" width="100" class="shadow-4" /></td>
+                <td>{{product.price | currency:'VND'}}</td>
+                <td>{{product.brandId.brandName}}</td>
+                <td>{{product.categoryId.catename}}</td>
+                <td>
+                    <span *ngIf="product.discount ===null" >no</span>
+                    <p-tag *ngIf="product.discount !== null" >{{product.discount}}%</p-tag>
+                </td>
+                <td>
+                    <span *ngIf="product.stock >5">{{product.stock}}</span>
+                    <p-tag severity="danger" icon="pi pi-exclamation-triangle"  value="{{product.stock}}" [rounded]="true" *ngIf="product.stock <=5" ></p-tag>
+                </td>
+                <td>
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" [routerLink]="[product._id]"></button>
+                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteProduct(product._id)"></button>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="summary">
+            <div class="flex align-items-center justify-content-between">
+                In total there are {{products ? products.length : 0 }} products.
+            </div>
+        </ng-template>
+    </p-table>
+</div>

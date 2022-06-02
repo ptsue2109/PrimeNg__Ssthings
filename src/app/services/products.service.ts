@@ -14,7 +14,7 @@ export class ProductsService {
     return this.http.get<any>(`${environment.productApi}`);
   }
   getOneById(id: string):Observable<any> {
-    return this.http.get<any>(`${environment.productApi}/${id}/edit`);
+    return this.http.get<any>(`${environment.productApi}/${id}`);
   }
   remove(id: string):Observable<any>{
     return this.http.delete<any>(`${environment.productApi}/${id}`);

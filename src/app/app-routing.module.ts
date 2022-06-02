@@ -4,7 +4,7 @@ import { AdminLayoutComponent } from './components/layouts/admin-layout/admin-la
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { ProductsAddComponent } from './pages/admin/products/products-add/products-add.component';
 import { ProductsEditComponent } from './pages/admin/products/products-edit/products-edit.component';
-import { ProductsListComponent } from './pages/admin/products/products-list/products-list.component';
+import { ProductsLisstComponent } from './pages/admin/products/products-lisst/products-lisst.component';
 import { ProductsComponent } from './pages/admin/products/products.component';
 import { UsersAddComponent } from './pages/admin/users/users-add/users-add.component';
 import { UsersEditComponent } from './pages/admin/users/users-edit/users-edit.component';
@@ -54,14 +54,14 @@ const routes: Routes = [
         children: [
           {
             path : '',
-            component: ProductsListComponent
+            component: ProductsLisstComponent
           },
           {
             path : "add",
             component : ProductsAddComponent
           },
           {
-            path : 'edit/:id',
+            path : ':id',
             component: ProductsEditComponent
           }
         ]

@@ -50,8 +50,8 @@ export class ProductsAddComponent implements OnInit {
     price: new FormControl(),
     stock: new FormControl(),
     discount: new FormControl(),
-    category_id: new FormControl(),
-    brand: new FormControl(),
+    categoryId: new FormControl(),
+    brandId: new FormControl(),
     image: new FormControl(),
     desc: new FormControl(),
     short_desc: new FormControl(),
@@ -69,7 +69,7 @@ export class ProductsAddComponent implements OnInit {
   }
   addNew() {
     let urlDetail = JSON.parse(localStorage.getItem('imgList') || "{}");
-    this.messageService.add({ severity: 'info', summary: 'Success', detail: 'Loading...' })
+    this.messageService.add({ severity: 'info', summary: 'Loading', detail: 'Loading...' })
     setTimeout(() => {
       let uploadData: any = {
         name_product: this.AddForm.value.name_product,
@@ -80,9 +80,9 @@ export class ProductsAddComponent implements OnInit {
         desc: this.AddForm.value.desc,
         priceAfterDiscount: this.AddForm.value.priceAfterDiscount,
         image: localStorage.getItem('imgThum'),
-        category_id: this.AddForm.value.category_id,
+        categoryId: this.AddForm.value.categoryId,
         image_mutiple: urlDetail,
-        brand: this.AddForm.value.brand,
+        brandId: this.AddForm.value.brandId,
         isFeatured: this.isFeaturedChecked
       };
       console.log('uploadData', uploadData);
@@ -93,11 +93,11 @@ export class ProductsAddComponent implements OnInit {
           setTimeout(() => {
             this.route.navigate(['/admin/products']);
             localStorage.removeItem('imgThum');
-          }, 300);
+          }, 200);
         },
         error: ({ error }) => {
           localStorage.removeItem('imgThum');
-          localStorage.removeItem('imgList')
+          localStorage.removeItem('imgList');
           this.messageService.add({ severity: 'error', summary: 'Failed', detail: `${error}` })
         },
       });

@@ -4,8 +4,10 @@ import { Router } from '@angular/router';
 import { UploadImgService } from './../../../../services/upload-img.service';
 import { Title } from '@angular/platform-browser';
 import { CategoryService } from './../../../../services/category.service';
+import { BrandsService } from 'src/app/services/brands.service';
 import { ProductsService } from './../../../../services/products.service';
 import { ActivatedRoute } from '@angular/router';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-products-edit',
@@ -13,11 +15,15 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./products-edit.component.scss']
 })
 export class ProductsEditComponent implements OnInit {
+  isFeaturedChecked: boolean = false;
+  newFeature: boolean = false;
   categories: any = [];
+  brands:any = [];
   dataPro: any = [];
   id: string;
   file: any = [];
   selected: string = '';
+  brandSelected: string = ''
   OldImage: string | null | undefined;
   newImg: string | null | undefined;
   listImgDetail :any
@@ -27,7 +33,9 @@ export class ProductsEditComponent implements OnInit {
     private uploadFile: UploadImgService,
     private title: Title,
     private CategoryService: CategoryService,
-    private ActivatedRouter: ActivatedRoute
+    private ActivatedRouter: ActivatedRoute,
+    private BrandsService:BrandsService,
+    private MessageService: MessageService,
   ) {
     this.id = '';
     this.title.setTitle('Products - Edit ');
@@ -36,17 +44,23 @@ export class ProductsEditComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.ActivatedRouter.snapshot.params['id'];
     this.ProductsService.getOneById(this.id).subscribe((data) => {
+      console.log('data',data);
       this.dataPro = data;
       this.selected = data.categories;
+      this.brandSelected = data.brands
       this.OldImage = data.image;
       this.listImgDetail = data.image_mutiple;
+      this.isFeaturedChecked = data.isFeaturedChecked
+      
     });
-  }
-  getAllCate() {
     this.CategoryService.getAllCate().subscribe((data) =>{
       this.categories = data;
     })
+    this.BrandsService.getAll().subscribe((data) =>{
+      this.brands = data
+    })
   }
+
   selectOption = (event: any) => {
     this.selected = event.target.value;
   };
@@ -70,9 +84,12 @@ export class ProductsEditComponent implements OnInit {
     this.uploadFile.uploadImg(this.file);
     this.newImg = localStorage.getItem('imgThum');
   }
-
+  checkCheckBoxvalue(event: any) {
+    this.isFeaturedChecked = event.target.checked
+  }
   addNew() {
-    // this.toastr.info('Loading...');
+    this.MessageService.add({ severity: 'info', summary: 'Loading', detail: 'Loading...' })
+
     setTimeout(() => {
       let userData: any = {
         name_product: this.AddForm.value.name_product,
@@ -84,16 +101,25 @@ export class ProductsEditComponent implements OnInit {
         priceAfterDiscount: this.AddForm.value.priceAfterDiscount,
         image: this.newImg ? this.newImg : this.OldImage,
         categories: this.selected,
+        isFeaturedChecked  : this.newFeature ? this.newFeature : this.isFeaturedChecked
       };
       console.log(userData);
 
       this.ProductsService.editProduct(userData, this.id).subscribe({
         next: (data: any) => {
-          this.route.navigate(['/admin/products']);
-          localStorage.removeItem('imgThum');
+          this.MessageService.add({ severity: 'success', summary: 'Success', detail: 'Add success' })
+          setTimeout(() => {
+            this.route.navigate(['/admin/products']);
+            localStorage.removeItem('imgThum');
+            localStorage.removeItem('imgList');
+          }, 300);
+          
         },
         error: ({ error }) => {
           localStorage.removeItem('imgThum');
+          localStorage.removeItem('imgList');
+          this.MessageService.add({ severity: 'error', summary: 'Failed', detail: `${error}` })
+
         },
       });
     }, 5000);

@@ -1,19 +1,20 @@
 
 <a [routerLink]="'/admin/products'" mat-raised-button >List products</a>
-<p-card style="border: 1px solid rgb(160, 160, 160); margin-top: 10px">
+<p-card>
     <form action="" [formGroup]="AddForm" (ngSubmit)="addNew()">
         <p-toast position="top-right"></p-toast>
         <div class="d-flex gap-3">
             <div class="col col-lg-6">
                 <div class="mb-4">
-                     <img src="{{dataPro.image}}" mat-card-avatar>
+                     <p-avatar image="{{dataPro.image}}" size="xlarge"></p-avatar>
                     <input type="file" name="image" (change)="saveFileThumail($event)" formControlName="image"
                         class="form-control" />
                 </div>
+
                 <div class="mb-4">
-                    <img  *ngFor="let i of listImgDetail" src="{{i.name}}"  mat-card-avatar> <br>
+                    <p-avatar  *ngFor="let i of listImgDetail"  size="xlarge" image="{{i.name}}"></p-avatar> <br>
                     <label for="">Chọn ảnh chi tiết (chọn nhiều) </label> 
-                   <input type="file" name="image_mutiple" (change)="saveFileThumail($event)" formControlName="image_mutiple"
+                   <input type="file" name="image_mutiple" multiple (change)="saveFileThumail($event)" formControlName="image_mutiple"
                        class="form-control" />
                </div>
                 <div class="mb-4">
@@ -38,7 +39,7 @@
                 <div class="mb-4">
                     <div class="form-group">
                         <label for="">Choose Category</label>
-                        <select (change)="selectOption($event)" class="form-select"  [(ngModel)]="dataPro.categories" [ngModelOptions]="{standalone: true}">
+                        <select (change)="selectOption($event)" class="form-select"  [(ngModel)]="dataPro.categoryId" [ngModelOptions]="{standalone: true}">
                             <option value="{{item._id}}" *ngFor="let item of categories">
                                 {{ item.catename }}
                             </option>
@@ -49,16 +50,27 @@
 
             <div class="col col-lg-6">
                 <div class="mb-4">
-                    <mdb-form-control>
-                        <input mdbLabel type="number" formControlName="discount" [(ngModel)]="dataPro.discounts"  class="form-control" />
-                        <label mdbInput class="form-label" for="discount">discounts</label>
-                    </mdb-form-control>
+                    <div class="form-group">
+                        <label for="">Choose Category</label>
+                        <select (change)="selectOption($event)" class="form-select"  [(ngModel)]="dataPro.brandId"[ngModelOptions]="{standalone: true}">
+                            <option value="{{item._id}}" *ngFor="let item of brands">
+                                {{ item.brandName }}
+                            </option>
+                        </select>
+                    </div>
                 </div>
                 <div class="mb-4">
-                    <mdb-form-control>
-                        <textarea mdbLabel type="text" formControlName="desc"  [(ngModel)]="dataPro.desc" class="form-control"></textarea>
-                        <label mdbInput class="form-label" for="desc">desc</label>
-                    </mdb-form-control>
+                        <label for="">discount</label>
+                        <input mdbLabel type="number" formControlName="discount" placeholder="discount" [(ngModel)]="dataPro.discounts"  class="form-control" />
+                </div>
+                <div class="mb-4">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" [(ngModel)]="dataPro.isFeatured" (change)="checkCheckBoxvalue($event)" formControlName="isFeatured"/>
+                        <label class="form-check-label">Featured products ??</label>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <p-editor formControlName="desc" [(ngModel)]="dataPro.desc" [style]="{ height: '130px' }"></p-editor>
                 </div>
                 <div class="mb-4">
                     <mdb-form-control>
@@ -66,6 +78,7 @@
                         <label mdbInput class="form-label" for="short_desc">short_descs</label>
                     </mdb-form-control>
                 </div>
+                
 
                 <div class="d-flex justify-content-between">
                     <button class="btn btn-primary btn-sm">Submit</button>
