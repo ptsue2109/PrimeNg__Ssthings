@@ -1,0 +1,48 @@
+<a [routerLink]="'/admin/users/add'" class="btn btn-raised-button">Add</a>
+<p-divider></p-divider>
+<p-toast position="top-right"></p-toast>
+<p-table #dt responsiveLayout="scroll" [value]="users" styleClass="p-datatable-customers" [rowHover]="true" [rows]="5"
+    [showCurrentPageReport]="true" [rowsPerPageOptions]="[5, 10, 15]" responsiveLayout="scroll" [paginator]="true">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>#</th>
+            <th>username</th>
+            <th>Avatar</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>phoneNumber</th>
+            <th>Action</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-item>
+        <tr class="p-selectable-row">
+            <td>{{1}}</td>
+            <td>{{ item.username }}</td>
+            <td>
+                <p-avatar *ngIf="item.image !== null" image="{{ item.image }}" size="large"></p-avatar>
+                <p-avatar *ngIf="item.image === null"
+                    image="https://i.pinimg.com/280x280_RS/2e/45/66/2e4566fd829bcf9eb11ccdb5f252b02f.jpg" size="large">
+                </p-avatar>
+            </td>
+            <td>{{ item.email }}</td>
+            <td>
+                <p-tag *ngIf="item.role === 'admin'">{{ item.role }}</p-tag>
+                <p-tag *ngIf="item.role === 'user'" severity="warning">{{item.role}}</p-tag>
+            </td>
+            <td>
+                <span *ngIf="item.phoneNumber !== null">{{ item.phoneNumber }}</span>
+                <span *ngIf="item.phoneNumber === undefined">____</span>
+            </td>
+            <td style="text-align: center">
+                <a [routerLink]="['edit', item._id]" class="btn btn-raised-button">
+                    Edit</a>
+                <button pButton pRipple styleClass="p-button-sm" icon="pi pi-trash" (click)="remove(item._id)"></button>
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+        <tr>
+            <td colspan="8">No customers found.</td>
+        </tr>
+    </ng-template>
+</p-table>

@@ -18,12 +18,21 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFireModule } from '@angular/fire/compat';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
-import { AdminComponent } from './pages/admin/admin.component';
 import { WebsiteComponent } from './pages/website/website.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PrimeNgModule } from './shared/PrimeNg/PrimeNg.module';
 import { MdbModule } from './shared/mdb/Mdb.module';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { HttpClientModule } from '@angular/common/http';
+import { UsersComponent } from './pages/admin/users/users.component';
+import { UsersListComponent } from './pages/admin/users/users-list/users-list.component';
+import { WebLayoutComponent } from './components/layouts/web-layout/web-layout.component';
+import { AdminLayoutComponent } from './components/layouts/admin-layout/admin-layout.component';
+import { AdminHeaderComponent } from './components/layouts/admin-layout/admin-header/admin-header.component';
+import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
+import { UsersAddComponent } from './pages/admin/users/users-add/users-add.component';
+import { UsersEditComponent } from './pages/admin/users/users-edit/users-edit.component';
+import { MessageService } from 'primeng/api';
 
 
 @NgModule({
@@ -31,8 +40,15 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    AdminComponent,
     WebsiteComponent,
+    UsersComponent,
+    UsersListComponent,
+    WebLayoutComponent,
+    AdminLayoutComponent,
+    AdminHeaderComponent,
+    DashboardComponent,
+    UsersAddComponent,
+    UsersEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +61,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    SweetAlert2Module.forRoot()
 
     // provideFirebaseApp(() => initializeApp(environment.firebase)),
     // provideAnalytics(() => getAnalytics()),
@@ -58,7 +75,8 @@ import { HttpClientModule } from '@angular/common/http';
     // provideStorage(() => getStorage())
   ],
   providers: [
-    PrimeNgModule
+    PrimeNgModule,
+    MessageService
     // ScreenTrackingService,UserTrackingService
   ],
   bootstrap: [AppComponent],

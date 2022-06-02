@@ -3,21 +3,23 @@
 // The list of file replacements can be found in `angular.json`.
   const BASE_API = 'http://localhost:1800';
 export const environment = {
+  production: false,
   authApi: `${BASE_API}`,
+  userApi: `${BASE_API}/users`,
+  productApi : `${BASE_API}/products`,
+  categoriesApi: `${BASE_API}/categories`,
+  sliderApi : `${BASE_API}/sliders`,
+  brandApi :  `${BASE_API}/brands`,
   firebase: {
-    projectId: 'angular-ssthings',
-    appId: '1:764616363470:web:48374eb0e71a7df1f76f9f',
-    databaseURL: 'https://angular-ssthings-default-rtdb.firebaseio.com',
-    storageBucket: 'angular-ssthings.appspot.com',
-    locationId: 'asia-northeast3',
-    apiKey: 'AIzaSyAIWQ8yF7NuVtlwGsJ9onPIusr72DAdZLg',
-    authDomain: 'angular-ssthings.firebaseapp.com',
-    messagingSenderId: '764616363470',
-    measurementId: 'G-44GC7HJLW7',
+    apiKey: 'AIzaSyCUdof8BHr8LfDIZIYDCvDv1e8mjmIpgGY',
+    authDomain: 'my-app-7bb3f.firebaseapp.com',
+    projectId: 'my-app-7bb3f',
+    storageBucket: 'my-app-7bb3f.appspot.com',
+    messagingSenderId: '927914054611',
+    appId: '1:927914054611:web:910cce751ca44b58d05526',
+    measurementId: 'G-6QP8PCWKHV',
   },
-  production: false
 };
-
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
