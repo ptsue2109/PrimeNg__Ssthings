@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angular-ssthings": {
+      "hosting": {
+        "primeNg-app": [
+          "angular-ssthings"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angular-ssthings"
+  }
+}
