@@ -15,6 +15,8 @@ import { UsersComponent } from './pages/admin/users/users.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
 import { HomeComponent } from './pages/website/home/home.component';
+import { WebProductDetailComponent } from './pages/website/products/web-product-detail/web-product-detail.component';
+import { WebProductListComponent } from './pages/website/products/web-product-list/web-product-list.component';
 import { AuthGuard } from './shared/helpers/auth/auth.guard';
 
 const routes: Routes = [
@@ -81,6 +83,20 @@ const routes: Routes = [
         path: '',
         component: HomeComponent,
       },
+      {
+        path: 'products',
+        component: ProductsComponent,
+        children:[
+          {
+            path: '',
+            component : WebProductListComponent
+          },
+          {
+            path: ':id',
+            component: WebProductDetailComponent
+          }
+        ]
+      }
     ],
   },
   {

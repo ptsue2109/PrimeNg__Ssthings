@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ProductsService } from './../../../../services/products.service';
+import { ProductsService } from '../../../../shared/services/products.service';
 import { MessageService } from 'primeng/api';
 import { Title } from '@angular/platform-browser';
 import { swalMessage } from 'src/app/shared/uiHelpers/swal/swal.module';

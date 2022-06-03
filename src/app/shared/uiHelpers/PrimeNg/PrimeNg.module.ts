@@ -29,6 +29,8 @@ import { BadgeModule } from 'primeng/badge';
 import {CarouselModule} from 'primeng/carousel';
 import {DataViewModule} from 'primeng/dataview';
 import {ImageModule} from 'primeng/image';
+import {GalleriaModule} from 'primeng/galleria';
+
 const PrimeNgComponent = [
   PasswordModule,
   DividerModule,
@@ -59,6 +61,7 @@ const PrimeNgComponent = [
   ScrollTopModule,
   CarouselModule,
   ImageModule,
+  GalleriaModule,
   DataViewModule
 
 ];

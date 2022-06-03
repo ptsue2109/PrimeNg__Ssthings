@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UploadImgService } from './../../../../services/upload-img.service';
+import { UploadImgService } from '../../../../shared/services/upload-img.service';
 import { Title } from '@angular/platform-browser';
-import { CategoryService } from './../../../../services/category.service';
-import { BrandsService } from 'src/app/services/brands.service';
-import { ProductsService } from './../../../../services/products.service';
+import { CategoryService } from '../../../../shared/services/category.service';
+import { BrandsService } from 'src/app/shared/services/brands.service';
+import { ProductsService } from '../../../../shared/services/products.service';
 import { ActivatedRoute } from '@angular/router';
 import { MessageService } from 'primeng/api';
 

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { SlidersService } from 'src/app/services/sliders.service';
+import { SlidersService } from 'src/app/shared/services/sliders.service';
 @Component({
   selector: 'app-sliders',
   templateUrl: './sliders.component.html',

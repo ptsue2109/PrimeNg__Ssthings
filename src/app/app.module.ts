@@ -46,6 +46,14 @@ import { SlidersComponent } from './components/sliders/sliders.component';
 import { MenuCategoryComponent } from './components/menu-category/menu-category.component';
 import { CardProductSlideComponent } from './components/card-product-slide/card-product-slide.component';
 import { BrandsListComponent } from './components/brands-list/brands-list.component';
+import { WebProductListComponent } from './pages/website/products/web-product-list/web-product-list.component';
+import { WebProductDetailComponent } from './pages/website/products/web-product-detail/web-product-detail.component';
+import { DetailCardProductComponent } from './components/detail-card-product/detail-card-product.component';
+import { CurrencyPipe } from './shared/pipes/currency.pipe';
+import { LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+registerLocaleData(localeFr);
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,6 +79,10 @@ import { BrandsListComponent } from './components/brands-list/brands-list.compon
     MenuCategoryComponent,
     CardProductSlideComponent,
     BrandsListComponent,
+    WebProductListComponent,
+    WebProductDetailComponent,
+    DetailCardProductComponent,
+    CurrencyPipe
   ],
   imports: [
   BrowserModule,
@@ -100,7 +112,8 @@ import { BrandsListComponent } from './components/brands-list/brands-list.compon
   ],
   providers: [
     PrimeNgModule,
-    MessageService
+    MessageService,
+     
     // ScreenTrackingService,UserTrackingService
   ],
   bootstrap: [AppComponent],

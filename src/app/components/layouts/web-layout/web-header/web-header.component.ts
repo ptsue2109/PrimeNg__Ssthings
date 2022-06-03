@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { HomeService } from './../../../../services/homeService.service';
+import { HomeService } from '../../../../shared/services/homeService.service';
 @Component({
   selector: 'app-web-header',
   templateUrl: './web-header.component.html',
@@ -24,9 +24,7 @@ export class WebHeaderComponent implements OnInit {
       this.username = getUSerInfo.username;
       this.password= getUSerInfo.password;
       this.role = getUSerInfo.role;
-      this.avatar = getUSerInfo.image;
-      console.log(getUSerInfo);
-      
+      this.avatar = getUSerInfo.image;      
     }
     this.getAllData()
   }
@@ -36,13 +34,9 @@ getAllData() {
       console.log(data);
       this.categories = data.categories;
       this.brands = data.brands
-      console.log(this.categories);
-      
-      
     },
     error: (error) =>{
       console.log(error);
-      
     }
   })
 }

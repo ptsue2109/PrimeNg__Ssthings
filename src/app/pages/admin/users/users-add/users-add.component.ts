@@ -1,8 +1,8 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserService } from 'src/app/services/userService.service';
-import { UploadImgService } from '../../../../services/upload-img.service';
+import { UserService } from 'src/app/shared/services/userService.service';
+import { UploadImgService } from '../../../../shared/services/upload-img.service';
 import { Title } from '@angular/platform-browser';
 import { MessageService } from 'primeng/api';
 @Component({

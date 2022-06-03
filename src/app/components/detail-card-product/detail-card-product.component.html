@@ -1,0 +1,28 @@
+<div class="d-flex">
+    <div class="col col-lg-4">
+        <p-galleria [value]="productGallary" [responsiveOptions]="responsiveOptions"
+            [containerStyle]="{'max-width': '640px'}" [numVisible]="5" [circular]="true" [autoPlay]="true"
+            [transitionInterval]="2000">
+            <ng-template pTemplate="item" let item>
+                <img [src]="productImg" style="width: 450px; display: block;object-fit: cover;" />
+            </ng-template>
+            <ng-template pTemplate="thumbnail" let-item>
+                <div class="grid grid-nogutter justify-content-center">
+                    <img [src]="item.name" style="width:40%; display: block;" />
+                </div>
+            </ng-template>
+        </p-galleria>
+       
+    </div>
+    <div class="col col-lg-8">
+        <!-- <h1>{{product.name_product}}</h1>
+        <p>Danh muc : {{product.categoryId.catename}}</p>
+        <p>Thuong Hieu : {{product.brandId.brandName}}</p>
+        <p>GIa : {{product.price}}</p>
+        <p>SL trong kho : {{product.stock}}</p>
+        <p *ngIf="product.discount !== null">Giam gia : {{product.discount}} %</p>
+        <p *ngIf="product.discount !== null">Gia sau giam: {{product.discount | currency}}</p> -->
+
+        <p-button label="Small" icon="pi pi-check" styleClass="p-button-sm" (onClick)="Addcart(product)"></p-button>
+    </div>
+</div>

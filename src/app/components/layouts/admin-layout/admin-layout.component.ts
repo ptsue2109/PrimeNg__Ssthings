@@ -31,7 +31,7 @@ export class AdminLayoutComponent implements OnInit {
     },
     {
       label: 'Products',
-      icon: 'pi pi-pw pi-users',
+      icon: 'pi pi-pw pi-table',
       items: [
         {
           label: 'New',
@@ -48,7 +48,7 @@ export class AdminLayoutComponent implements OnInit {
     },
     {
       label: 'Brands',
-      icon: 'pi pi-pw pi-users',
+      icon: 'pi pi-pw pi-tag',
       items: [
         {
           label: 'New',
@@ -65,7 +65,7 @@ export class AdminLayoutComponent implements OnInit {
     },
     {
       label: 'Categories',
-      icon: 'pi pi-pw pi-users',
+      icon: 'pi pi-pw pi-list',
       items: [
         {
           label: 'New',
@@ -82,7 +82,7 @@ export class AdminLayoutComponent implements OnInit {
     },
     {
       label: 'Sliders',
-      icon: 'pi pi-pw pi-users',
+      icon: 'pi pi-pw pi-images',
       items: [
         {
           label: 'New',
@@ -99,7 +99,7 @@ export class AdminLayoutComponent implements OnInit {
     },
     {
       label: 'Orders',
-      icon: 'pi pi-pw pi-users',
+      icon: 'pi pi-pw pi-shopping-bag',
       items: [
         {
           label: 'New',

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../../services/authService.service';
+import { AuthService } from '../../../shared/services/authService.service';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { MessageService } from 'primeng/api';

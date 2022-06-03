@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HomeService } from 'src/app/services/homeService.service';
+import { HomeService } from 'src/app/shared/services/homeService.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',

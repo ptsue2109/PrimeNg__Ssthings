@@ -1,16 +1,17 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
-  const BASE_API = 'http://localhost:1800';
+const BASE_API = 'http://localhost:1800';
 export const environment = {
   production: false,
   authApi: `${BASE_API}`,
   userApi: `${BASE_API}/users`,
-  productApi : `${BASE_API}/products`,
+  productApi: `${BASE_API}/products`,
   categoriesApi: `${BASE_API}/categories`,
-  sliderApi : `${BASE_API}/sliders`,
-  brandApi :  `${BASE_API}/brands`,
-  homeApi:  `${BASE_API}/home`,
+  sliderApi: `${BASE_API}/sliders`,
+  brandApi: `${BASE_API}/brands`,
+  homeApi: `${BASE_API}/home`,
+  cartApi: `${BASE_API}/carts`,
   firebase: {
     apiKey: 'AIzaSyCUdof8BHr8LfDIZIYDCvDv1e8mjmIpgGY',
     authDomain: 'my-app-7bb3f.firebaseapp.com',

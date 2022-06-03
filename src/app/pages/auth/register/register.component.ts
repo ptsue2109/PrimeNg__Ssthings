@@ -1,6 +1,6 @@
 import { Component, ErrorHandler, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../../../services/authService.service';
+import { AuthService } from '../../../shared/services/authService.service';
 import { Title } from '@angular/platform-browser';
 import { MessageService } from 'primeng/api';
 

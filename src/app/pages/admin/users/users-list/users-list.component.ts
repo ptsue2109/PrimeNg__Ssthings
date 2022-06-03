@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from './../../../../services/userService.service';
+import { UserService } from '../../../../shared/services/userService.service';
 import { Title } from '@angular/platform-browser';
 import {  MessageService } from 'primeng/api';
 import { swal, swalMessage } from '../../../../shared/uiHelpers/swal/swal.module';
